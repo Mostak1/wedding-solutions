@@ -1,0 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&family=Poppins:wght@300&display=swap');
+/* header Css Start 
+    ...-                   .
+    -                   ..
+ header Css Start */
+
+a,p{
+    font-family: 'Poppins', sans-serif;
+
+    /* font-family: 'Cormorant Garamond', serif; */
+}
+.btnsr{
+    background-color: #BE9A82;
+}
+.titleclr{
+color: #BE9A82;
+font-family: 'Cormorant Garamond', serif;
+}
+.btnsr:hover{
+    background-color: #f8f4f1;
+    border: 1px solid #BE9A82;
+}
+.close_btn {
+    position: absolute;
+    top: -0px;
+    right: -0px;
+    padding: 5px;
+    /* background-color: #BE9A82; */
+    color: #fff;
+    cursor: pointer;
+  }
+li a:hover{
+    color: #BE9A82;
+    background-color: #f3d2bc;
+
+}
