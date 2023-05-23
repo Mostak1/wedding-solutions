@@ -13,6 +13,7 @@ import { Nopage } from './user/Nopage';
 import { About } from "./user/about/About";
 import { Login } from "./user/login/Login";
 import { Registration } from "./user/registration/Registration";
+import ProductComponent from "./user/product/Product";
 
 // import { FaReact } from 'react-icons/fa';
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
+          <Route path="product" element={<ProductComponent />} />
           <Route path="*" element={<Nopage />} />
         </Route>
       </Routes>

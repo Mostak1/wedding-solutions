@@ -6,7 +6,46 @@ import logo from '../../assets/img/ws.png';
 import { Outlet, Link } from "react-router-dom";
 
 export const Login = () => {
- 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [validUser, setvalidUser] = useState(localStorage.getItem("validuser") || false);
+    const handleUsernameChange = (e) => {
+        setUsername(e.target.value);
+      };
+    
+      const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+      };
+    // 
+    const handleLogin = async (e) => {
+        e.preventDefault();
+    
+        try {
+          const response = await fetch('http://localhost/round_53/React/wedding-solutions/API/login.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username,
+              password,
+            }),
+          });
+    
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            if(data.success){ localStorage.setItem("validuser",true); setvalidUser(true);}
+            else{ localStorage.removeItem("validuser"); setvalidUser(false);}
+          } else {
+            // Login failed, handle the error
+            console.log('Login failed');
+          }
+        } catch (error) {
+          console.error('Error logging in:', error);
+        }
+      };  
+    // 
     return (
         <div className=' '>
         <div className='container my-5 '>
@@ -47,6 +86,18 @@ export const Login = () => {
 
                 </div>
             </div>
+            <hr/>
+            <form onSubmit={handleLogin}>
+        <div>
+          <label>Username:</label>
+          <input type="text" value={username} onChange={handleUsernameChange} />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" value={password} onChange={handlePasswordChange} />
+        </div>
+        <button type="submit">Login</button>
+      </form>
         </div>
     </div>
     )
