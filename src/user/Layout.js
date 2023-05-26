@@ -52,7 +52,7 @@ export const Layout = () => {
                     <div class="nav-item">
                         {/* {/*{<!-- Button trigger modal -->} */} 
                         <button type="button" class="btn btnsr" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Send Request
+                            Send Message
                         </button>
                     </div>
                 </div>

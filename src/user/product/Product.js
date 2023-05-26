@@ -52,6 +52,12 @@ const ProductComponent = () => {
           {/* Products in Getes category */}
           <ProductItem>
             <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
             <AddToCartButton onClick={() => handleAddToCart('Product 1')}>
               Add to Cart
             </AddToCartButton>
@@ -75,7 +81,7 @@ const ProductComponent = () => {
         </ProductList>
       </Category>
       <Category>
-        <CategoryTitle>Caterings</CategoryTitle>
+        <CategoryTitle>Wedding Hall</CategoryTitle>
         <ProductList>
           {/* Products in Caterings category */}
           <ProductItem>
