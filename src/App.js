@@ -14,10 +14,7 @@ import { About } from "./user/about/About";
 import { Login } from "./user/login/Login";
 import { Registration } from "./user/registration/Registration";
 import ProductComponent from "./user/product/Product";
-<<<<<<< HEAD
 import { Decorations } from "./user/product/Decorations";
-=======
->>>>>>> b472591b9ca805c85da4382014a7fa2536d796c5
 
 // import { FaReact } from 'react-icons/fa';
 
@@ -36,10 +33,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
-<<<<<<< HEAD
           <Route path="decorations" element={<Decorations />} />
-=======
->>>>>>> b472591b9ca805c85da4382014a7fa2536d796c5
           <Route path="product" element={<ProductComponent />} />
           <Route path="*" element={<Nopage />} />
         </Route>

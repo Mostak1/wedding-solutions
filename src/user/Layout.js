@@ -28,12 +28,9 @@ export const Layout = () => {
                             </li>
                             <li class="nav-item">
                                 <Link class="nav-link" to='/product' >Service</Link>
-<<<<<<< HEAD
                             </li>
                             <li class="nav-item">
                                 <Link class="nav-link" to='/decorations' >Decorations</Link>
-=======
->>>>>>> b472591b9ca805c85da4382014a7fa2536d796c5
                             </li>
                             <li class="nav-item dropdown">
                                 <Link class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
