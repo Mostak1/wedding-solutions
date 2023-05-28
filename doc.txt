@@ -1,1 +1,22 @@
 Events page like this: https://demo.ovathemes.com/eventmana/event-list/
+
+ALTER TABLE stage
+CHANGE COLUMN Title title VARCHAR(255);
+CREATE TABLE stage (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  Titel VARCHAR(255),
+  images VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO `gate`(`title`, `images`) VALUES 
+('Beautifull Wedding Gate','g01.jpg'),
+('Beautifull Wedding Gate','g1.jpg'),
+('Beautifull Wedding Gate','g2.jpg'),
+('Beautifull Wedding Gate','g3.jpg'),
+('Beautifull Wedding Gate','g4.jpg'),
+('Beautifull Wedding Gate','g5.jpg'),
+('Beautifull Wedding Gate','g6.jpg'),
+('Beautifull Wedding Gate','g7.jpg'),
+('Beautifull Wedding Gate','g8.jpg'),
+('Beautifull Wedding Gate','g9.jpg'),
+('Beautifull Wedding Gate','g10.jpg');
