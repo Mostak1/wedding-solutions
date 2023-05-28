@@ -20,7 +20,12 @@ export const Registration = () => {
             alert("Mobile must be at least 11 characters");
         } else {
             // const url = "http://localhost/WDPF/react/wedding-solutions/API/createuser.php";
+<<<<<<< HEAD
             const url ="http://localhost/round_53/React/wedding-solutions/API/createuser.php";
+=======
+            // const url ="http://localhost/round_53/React/wedding-solutions/API/createuser.php";
+            const url =" http://localhost/wdpf/wedding-solutions/API/createuser.php";
+>>>>>>> b472591b9ca805c85da4382014a7fa2536d796c5
 
             let fData = new FormData();
             fData.append('name',name);

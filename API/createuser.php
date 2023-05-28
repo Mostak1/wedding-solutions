@@ -50,7 +50,7 @@ if(mysqli_connect_error()){
 	$password1 = $_POST['password'];
 	$password = password_hash($password1,PASSWORD_DEFAULT);
 
-	$sql = "INSERT INTO `users`( `first_name`,`home`, `phone`, `email`,`password`) VALUES ('$name','$address','$mobile','$email','$password')";
+	$sql = "INSERT INTO `users`( `name`,`address`, `phone`, `email`,`password`) VALUES ('$name','$address','$mobile','$email','$password')";
 	$res = $conn->query($sql);
 	if ($res){
 		echo "Success";

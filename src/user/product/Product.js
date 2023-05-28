@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+=======
+import React, { useState } from 'react';
+>>>>>>> b472591b9ca805c85da4382014a7fa2536d796c5
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -44,6 +48,7 @@ const ProductComponent = () => {
   const handleAddToCart = (product) => {
     setCartItems([...cartItems, product]);
   };
+<<<<<<< HEAD
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -140,6 +145,67 @@ const ProductComponent = () => {
             </ul>
           </div>
         </div>
+=======
+
+  return (
+    <Container>
+      <Category>
+        <CategoryTitle>Getes</CategoryTitle>
+        <ProductList>
+          {/* Products in Getes category */}
+          <ProductItem>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <ProductName>Product 1</ProductName>
+            <AddToCartButton onClick={() => handleAddToCart('Product 1')}>
+              Add to Cart
+            </AddToCartButton>
+          </ProductItem>
+          {/* Add more products in the same format */}
+          {/* ... */}
+        </ProductList>
+      </Category>
+      <Category>
+        <CategoryTitle>State</CategoryTitle>
+        <ProductList>
+          {/* Products in State category */}
+          <ProductItem>
+            <ProductName>Product 1</ProductName>
+            <AddToCartButton onClick={() => handleAddToCart('Product 1')}>
+              Add to Cart
+            </AddToCartButton>
+          </ProductItem>
+          {/* Add more products in the same format */}
+          {/* ... */}
+        </ProductList>
+      </Category>
+      <Category>
+        <CategoryTitle>Wedding Hall</CategoryTitle>
+        <ProductList>
+          {/* Products in Caterings category */}
+          <ProductItem>
+            <ProductName>Product 1</ProductName>
+            <AddToCartButton onClick={() => handleAddToCart('Product 1')}>
+              Add to Cart
+            </AddToCartButton>
+          </ProductItem>
+          {/* Add more products in the same format */}
+          {/* ... */}
+        </ProductList>
+      </Category>
+      {/* Display cart items */}
+      <div>
+        <h3>Cart</h3>
+        <ul>
+          {cartItems.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+>>>>>>> b472591b9ca805c85da4382014a7fa2536d796c5
       </div>
     </Container>
   );
