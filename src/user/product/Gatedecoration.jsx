@@ -5,14 +5,16 @@ export const Gatedecoration = () => {
     const [products, setProducts] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [isSending, setIsSending] = useState(false);
-  
+    
     const imgUrl = 'http://localhost/WDPF/react/wedding-solutions/src/assets/picture/gate/';
     // data get from api
+
+    const dataApi = 'http://192.168.0.108/WDPF/react/wedding-solutions/API/alltableapi.php';
     useEffect(() => {
       const fetchProducts = async () => {
         try {
-          const response = await axios.get('http://localhost/WDPF/react/wedding-solutions/API/gateapi.php');
-          setProducts(response.data);
+          const response = await axios.get(dataApi);
+          setProducts(response.data.gate);
         } catch (error) {
           console.error('Error fetching products:', error);
         }
@@ -20,7 +22,9 @@ export const Gatedecoration = () => {
   
       fetchProducts();
     }, []);
-    //add to cart from product
+
+
+    //add to cart from product to the sidebar
   
     const addToCart = (product) => {
       setCartItems([...cartItems, product]);
@@ -32,9 +36,7 @@ export const Gatedecoration = () => {
         // Save cart items to local storage
         localStorage.setItem('gcartItems', JSON.stringify(cartItems));
   
-        const response = await axios.post('http://localhost/WDPF/react/wedding-solutions/API/cartapi.php', cartItems);
-        console.log('Cart items sent to database:', response.data);
-        setIsSending(false);
+        
       } catch (error) {
         console.error('Error sending cart items to database:', error);
         setIsSending(false);

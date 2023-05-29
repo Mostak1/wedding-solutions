@@ -7,11 +7,13 @@ export const Stagedecoration = () => {
 
   const imgUrl = 'http://localhost/WDPF/react/wedding-solutions/src/assets/picture/stage/';
   // data get from api
+  const dataApi = 'http://192.168.0.108/WDPF/react/wedding-solutions/API/alltableapi.php';
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost/WDPF/react/wedding-solutions/API/stageapi.php');
-        setProducts(response.data);
+        const response = await axios.get(dataApi);
+        setProducts(response.data.stage);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -30,10 +32,6 @@ export const Stagedecoration = () => {
       setIsSending(true);
       // Save cart items to local storage
       localStorage.setItem('scartItems', JSON.stringify(cartItems));
-
-      const response = await axios.post('http://localhost/WDPF/react/wedding-solutions/API/cartapi.php', cartItems);
-      console.log('Cart items sent to database:', response.data);
-      setIsSending(false);
     } catch (error) {
       console.error('Error sending cart items to database:', error);
       setIsSending(false);

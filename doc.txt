@@ -81,18 +81,12 @@ INSERT INTO `photoshoot`(`title`, `images`) VALUES
 ('Wedding photoshoot center Of Wedding-solutions coad- 8','ph8.jpg'),
 ('Wedding photoshoot center Of Wedding-solutions coad- 9','ph9.jpg');
 
- //send data to database from cart list
-  const sendCartItemsToDatabase = async () => {
-    try {
-      setIsSending(true);
-      const response = await axios.post('http://localhost/WDPF/react/wedding-solutions/API/cartapi.php', cartItems);
-      console.log('Cart items sent to database:', response.data);
-      setIsSending(false);
-    } catch (error) {
-      console.error('Error sending cart items to database:', error);
-      setIsSending(false);
-    }
-  };
-<button className='btn btn-outline-dark' onClick={sendCartItemsToDatabase} disabled={isSending}>
-              {isSending ? 'Sending...' : 'Save'}
-            </button>
+CREATE TABLE users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  address VARCHAR(255),
+  phone VARCHAR(20),
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

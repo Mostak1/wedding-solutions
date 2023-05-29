@@ -18,6 +18,12 @@ import { Stagedecoration } from "./user/product/Stagedecoration";
 import { Halldec } from "./user/product/Halldec";
 import { Photoshootdec } from "./user/product/Photoshootdec";
 import { Sellecteditem } from "./user/product/Sellecteditem";
+//admin
+import PrivateRoute from "./Privateroute";
+import DashLayout from "./admin/DashLayout";
+import DashHome from "./admin/pages/DashHome";
+import AddProducts from "./admin/pages/AddProducts";
+import User from "./admin/pages/User";
 
 // import { FaReact } from 'react-icons/fa';
 
@@ -29,22 +35,31 @@ function App() {
       {/* <h1>Welcome to My React App</h1>
       <FaReact size={320} color="blue" /> */}
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="about" element={<About />} />
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-          <Route path="gatedecoration" element={<Gatedecoration />} />
-          <Route path="stage" element={<Stagedecoration/>} />
-          <Route path="hall" element={<Halldec />} />
-          <Route path="photoshoot" element={<Photoshootdec />} />
-          <Route path="sellect" element={<Sellecteditem />} />
-          <Route path="*" element={<Nopage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="about" element={<About />} />
+            <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} />
+            <Route path="gatedecoration" element={<Gatedecoration />} />
+            <Route path="stage" element={<Stagedecoration />} />
+            <Route path="hall" element={<Halldec />} />
+            <Route path="photoshoot" element={<Photoshootdec />} />
+            <Route path="sellect" element={<Sellecteditem />} />
+            <Route path="*" element={<Nopage />} />
+          </Route>
+          <Route path="dashboard" element={
+            <PrivateRoute>
+              <DashLayout />
+            </PrivateRoute>
+          }>
+            <Route index element={<DashHome />} />
+            <Route path="add-product" element={<AddProducts />} />
+            <Route path="user" element={<User />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

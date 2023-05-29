@@ -1,10 +1,40 @@
-import React from 'react'
-import { Outlet, Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import './Layout.css';
 import logo from '../assets/img/ws.png'
 import { FaReact, FaFacebook, FaTwitter, FaGoogle, FaInstagram, FaLinkedin, FaGithub, FaHome, FaEnvelope, FaPhone, FaPrint } from 'react-icons/fa';
+import auth from '../firebase/FirebaseConfig';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export const Layout = () => {
+    const [isLogin, setIsLogin] = useState(false);
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsLogin(true)
+            } else {
+                setIsLogin(false)
+            }
+        })
+    }, [])
+
+    //***Log Out Config */
+    const handleLogout = () => {
+        signOut(auth).then(() => {
+            navigate("/login")
+        }).catch((error) => {
+            alert(error.message)
+        });
+    }
+
+
+
+
+
+    //************************     ***************/
     const bgclr1 = 'rgba(0, 0, 0, 0.025)';
     return (
         <div>
@@ -29,26 +59,42 @@ export const Layout = () => {
                             <li class="nav-item">
                                 <Link class="nav-link" to='/product' >Service</Link>
                             </li>
-                           
-                            <li class="nav-item">
-                                <Link class="nav-link" href="#" to='login'>Login/Registration</Link>
-                            </li>
+
+
+
+                            {/* {
+                                isLogin && <li className="nav-item">
+                                    <Link to="dashboard" className="nav-link" >Dashboard</Link>
+                                </li>
+                            } */}
+
+                            {/* {isLogin && */}
+                                <li class="nav-item dropdown">
+                                    <Link class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Decorations
+                                    </Link>
+                                    <ul class="dropdown-menu">
+                                        <li><Link class="dropdown-item" to='/gatedecoration' >Gate Decorations</Link></li>
+                                        <li><Link class="dropdown-item" to='/stage' >Stage Decorations</Link></li>
+                                        <li><Link class="dropdown-item" to='/hall' >Hall Decorations</Link></li>
+                                        <li><Link class="dropdown-item" to='/photoshoot' >Photoshoot Decorations</Link></li>
+                                        <li>
+                                            <hr class="dropdown-divider" />
+                                        </li>
+                                        <li><Link class="dropdown-item" to='/sellect'>Sellected Items</Link></li>
+                                    </ul>
+                                </li>
                             
-                            <li class="nav-item dropdown">
-                                <Link class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Decorations
-                                </Link>
-                                <ul class="dropdown-menu">
-                                    <li><Link class="dropdown-item" to='/gatedecoration' >Gate Decorations</Link></li>
-                                    <li><Link class="dropdown-item" to='/stage' >Stage Decorations</Link></li>
-                                    <li><Link class="dropdown-item" to='/hall' >Hall Decorations</Link></li>
-                                    <li><Link class="dropdown-item" to='/photoshoot' >Photoshoot Decorations</Link></li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
-                                    <li><Link class="dropdown-item" to='/sellect'>Sellected Items</Link></li>
-                                </ul>
-                            </li>
+                            {
+                                !isLogin && <li className="nav-item">
+                                    <Link to="login" className="nav-link" >Login</Link>
+                                </li>
+                            }
+                            {
+                                isLogin && <li className="nav-item">
+                                    <a onClick={handleLogout} style={{ cursor: "pointer" }} className="nav-link" >Log Out</a>
+                                </li>
+                            }
                         </ul>
                         {/* {/*{<!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

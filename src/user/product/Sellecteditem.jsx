@@ -32,7 +32,8 @@ export const Sellecteditem = () => {
         xhr.onreadystatechange = function() {
           if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-              console.log('Cart items submitted successfully');
+              // console.log('Cart items submitted successfully');
+              alert('Cart items submitted successfully');
             } else {
               console.error('Error submitting cart items:', xhr.status);
             }
@@ -41,22 +42,22 @@ export const Sellecteditem = () => {
       
         const data = JSON.stringify(allCartItems);
         xhr.send(data);
+        console.log(data);
       };
-
       //using axios
-      const sendCartItemsToDatabase = () => {
-        setIsSending(true);
+      // const sendCartItemsToDatabase = () => {
+      //   setIsSending(true);
       
-        axios.post('http://localhost/WDPF/react/wedding-solutions/API/ordersubmit.php', allCartItems)
-          .then(response => {
-            console.log('Cart items sent to database:', response.data);
-            setIsSending(false);
-          })
-          .catch(error => {
-            console.error('Error sending cart items to database:', error);
-            setIsSending(false);
-          });
-      };
+      //   axios.post('http://localhost/WDPF/react/wedding-solutions/API/ordersubmit.php', allCartItems)
+      //     .then(response => {
+      //       console.log('Cart items sent to database:', response.data);
+      //       setIsSending(false);
+      //     })
+      //     .catch(error => {
+      //       console.error('Error sending cart items to database:', error);
+      //       setIsSending(false);
+      //     });
+      // };
       
       
     return (
@@ -136,11 +137,11 @@ export const Sellecteditem = () => {
               </div>
             ))}
           </div>
-          <button className='btn btn-outline-dark' onClick={sendCartItemsToDatabase} disabled={isSending}>
+          {/* <button className='btn btn-outline-dark' onClick={sendCartItemsToDatabase} disabled={isSending}>
   {isSending ? 'Sending...' : 'Save'}
-</button>
+</button> */}
 
-          <button type="submit" onClick={submitCartItemsToDatabase}>Submit Data</button>
+          <button type="button" onClick={submitCartItemsToDatabase}>Submit Data</button>
         </div>
         
       </>
