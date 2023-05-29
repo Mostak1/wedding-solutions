@@ -13,8 +13,11 @@ import { Nopage } from './user/Nopage';
 import { About } from "./user/about/About";
 import { Login } from "./user/login/Login";
 import { Registration } from "./user/registration/Registration";
-import ProductComponent from "./user/product/Product";
-import { Decorations } from "./user/product/Decorations";
+import { Gatedecoration } from "./user/product/Gatedecoration";
+import { Stagedecoration } from "./user/product/Stagedecoration";
+import { Halldec } from "./user/product/Halldec";
+import { Photoshootdec } from "./user/product/Photoshootdec";
+import { Sellecteditem } from "./user/product/Sellecteditem";
 
 // import { FaReact } from 'react-icons/fa';
 
@@ -33,8 +36,11 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
-          <Route path="decorations" element={<Decorations />} />
-          <Route path="product" element={<ProductComponent />} />
+          <Route path="gatedecoration" element={<Gatedecoration />} />
+          <Route path="stage" element={<Stagedecoration/>} />
+          <Route path="hall" element={<Halldec />} />
+          <Route path="photoshoot" element={<Photoshootdec />} />
+          <Route path="sellect" element={<Sellecteditem />} />
           <Route path="*" element={<Nopage />} />
         </Route>
       </Routes>

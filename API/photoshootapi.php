@@ -2,7 +2,7 @@
 //connections++;
 require "connection.php";
 // Retrieve all records from a table
-$sql = "SELECT * FROM `gate` where 1";
+$sql = "SELECT * FROM `photoshoot` where 1";
 $result = $conn->query($sql);
 $data = array();
 if ($result->num_rows > 0) {

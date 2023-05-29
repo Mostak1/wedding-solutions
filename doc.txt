@@ -20,3 +20,79 @@ INSERT INTO `gate`(`title`, `images`) VALUES
 ('Beautifull Wedding Gate','g8.jpg'),
 ('Beautifull Wedding Gate','g9.jpg'),
 ('Beautifull Wedding Gate','g10.jpg');
+
+UPDATE `gate`
+SET `title` = CASE
+    WHEN `id` = 1 THEN 'Beautifull Wedding Gate of Sena Cunjo-01'
+    WHEN `id` = 2 THEN 'Beautifull Wedding Gate of Sena Malancho-01'
+    WHEN `id` = 3 THEN 'Beautifull Wedding Gate of BGB Convention Center-01'
+    WHEN `id` = 4 THEN 'Beautifull Wedding Gate of Basundhora City-01'
+    WHEN `id` = 5 THEN 'Beautifull Wedding Gate of Radison Blue'
+    WHEN `id` = 6 THEN 'Beautifull Wedding Gate of Sena Malancho-02'
+    WHEN `id` = 7 THEN 'Beautifull Wedding Gate of Basundhora City-02'
+    WHEN `id` = 8 THEN 'Beautifull Wedding Gate of Golf Club-01'
+    WHEN `id` = 9 THEN 'Beautifull Wedding Gate of Sena Cunjo-02'
+   WHEN `id` = 10 THEN 'Beautifull Wedding Gate of BGB Convention Center-02'
+   WHEN `id` = 11 THEN 'Beautifull Wedding Gate of Sena Malancho-03'
+    
+    ELSE `title`
+END
+WHERE `id` IN (1, 2,3,4,5,6,7,8,9,10,11);
+
+INSERT INTO `stage`(`title`, `images`) VALUES 
+('Stage Of Wedding-solutions coad-1 ','s1.jpg'),
+('Stage Of Wedding-solutions coad- 2','s2.jpg'),
+('Stage Of Wedding-solutions coad- 3','s3.jpg'),
+('Stage Of Wedding-solutions coad- 4','s4.jpg'),
+('Stage Of Wedding-solutions coad- 5','s5.jpg'),
+('Stage Of Wedding-solutions coad- 6','s6.jpg'),
+('Stage Of Wedding-solutions coad- 7','s7.jpg'),
+('Stage Of Wedding-solutions coad- 8','s8.jpg'),
+('Stage Of Wedding-solutions coad- 9','s9.jpg'),
+('Stage Of Wedding-solutions coad- 10','s10.jpg'),
+('Stage Of Wedding-solutions coad- 11','s11.jpg'),
+('Stage Of Wedding-solutions coad- 12','s12.jpg'),
+('Stage Of Wedding-solutions coad- 13','s13.jpg'),
+('Stage Of Wedding-solutions coad- 14','s14.jpg'),
+('Stage Of Wedding-solutions coad- 15','s15.jpg');
+
+INSERT INTO `hall`(`title`, `images`) VALUES 
+('Wedding Hall Of Wedding-solutions coad-1 ','h1.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 2','h2.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 3','h3.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 4','h4.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 5','h5.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 6','h6.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 7','h7.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 8','h8.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 9','h9.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 10','h10.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 11','h11.jpg'),
+('Wedding Hall Of Wedding-solutions coad- 12','h12.jpg');
+
+INSERT INTO `photoshoot`(`title`, `images`) VALUES 
+('Wedding photoshoot center Of Wedding-solutions coad- 1','ph1.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 2','ph2.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 3','ph3.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 4','ph4.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 5','ph5.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 6','ph6.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 7','ph7.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 8','ph8.jpg'),
+('Wedding photoshoot center Of Wedding-solutions coad- 9','ph9.jpg');
+
+ //send data to database from cart list
+  const sendCartItemsToDatabase = async () => {
+    try {
+      setIsSending(true);
+      const response = await axios.post('http://localhost/WDPF/react/wedding-solutions/API/cartapi.php', cartItems);
+      console.log('Cart items sent to database:', response.data);
+      setIsSending(false);
+    } catch (error) {
+      console.error('Error sending cart items to database:', error);
+      setIsSending(false);
+    }
+  };
+<button className='btn btn-outline-dark' onClick={sendCartItemsToDatabase} disabled={isSending}>
+              {isSending ? 'Sending...' : 'Save'}
+            </button>

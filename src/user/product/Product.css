@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&family=Poppins:wght@300&display=swap');
+p{
+    font-family: 'Poppins', sans-serif;
+}
+.fnt2{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+}
+.fnt3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+}

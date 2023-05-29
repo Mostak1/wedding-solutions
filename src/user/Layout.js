@@ -2,10 +2,10 @@ import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import './Layout.css';
 import logo from '../assets/img/ws.png'
-import { FaReact,FaFacebook,FaTwitter,FaGoogle,FaInstagram,FaLinkedin,FaGithub,FaHome,FaEnvelope,FaPhone,FaPrint } from 'react-icons/fa';
+import { FaReact, FaFacebook, FaTwitter, FaGoogle, FaInstagram, FaLinkedin, FaGithub, FaHome, FaEnvelope, FaPhone, FaPrint } from 'react-icons/fa';
 
 export const Layout = () => {
-    const bgclr1 ='rgba(0, 0, 0, 0.025)';
+    const bgclr1 = 'rgba(0, 0, 0, 0.025)';
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,31 +29,35 @@ export const Layout = () => {
                             <li class="nav-item">
                                 <Link class="nav-link" to='/product' >Service</Link>
                             </li>
+                           
                             <li class="nav-item">
-                                <Link class="nav-link" to='/decorations' >Decorations</Link>
+                                <Link class="nav-link" href="#" to='login'>Login/Registration</Link>
                             </li>
+                            
                             <li class="nav-item dropdown">
                                 <Link class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
+                                    Decorations
                                 </Link>
                                 <ul class="dropdown-menu">
-                                    <li><Link class="dropdown-item" href="#" to='login'>Login</Link></li>
-                                    <li><Link class="dropdown-item" href="#" to='registration'>Registration</Link></li>
+                                    <li><Link class="dropdown-item" to='/gatedecoration' >Gate Decorations</Link></li>
+                                    <li><Link class="dropdown-item" to='/stage' >Stage Decorations</Link></li>
+                                    <li><Link class="dropdown-item" to='/hall' >Hall Decorations</Link></li>
+                                    <li><Link class="dropdown-item" to='/photoshoot' >Photoshoot Decorations</Link></li>
                                     <li>
                                         <hr class="dropdown-divider" />
                                     </li>
-                                    <li><Link class="dropdown-item" href="#">Something else here</Link></li>
+                                    <li><Link class="dropdown-item" to='/sellect'>Sellected Items</Link></li>
                                 </ul>
                             </li>
                         </ul>
                         {/* {/*{<!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->} */} 
+      </form> -->} */}
                     </div>
 
                     <div class="nav-item">
-                        {/* {/*{<!-- Button trigger modal -->} */} 
+                        {/* {/*{<!-- Button trigger modal -->} */}
                         <button type="button" class="btn btnsr" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Send Message
                         </button>
@@ -62,7 +66,7 @@ export const Layout = () => {
             </nav>
 
 
-            {/* {/*{<!-- Modal -->} */} 
+            {/* {/*{<!-- Modal -->} */}
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content ">
@@ -74,18 +78,18 @@ export const Layout = () => {
                         <p class="titleclr"></p>
                         <div class="modal-body">
                             <form id="myForm">
-                                {/* {/*{<!-- <label class="form-control" for="name">Name:</label> -->} */} 
+                                {/* {/*{<!-- <label class="form-control" for="name">Name:</label> -->} */}
                                 <input class="form-control mb-2" type="text" id="name" name="name" placeholder="Name*" required />
-                                {/* {/*{<!-- <label class="form-control" for="email">Email:</label> -->} */} 
+                                {/* {/*{<!-- <label class="form-control" for="email">Email:</label> -->} */}
                                 <input class="form-control mb-2" type="email" id="email" name="email" placeholder="email@gmail.com" required />
-                                {/* {/*{<!-- <label class="form-control" for="phone">Phone:</label> -->} */} 
+                                {/* {/*{<!-- <label class="form-control" for="phone">Phone:</label> -->} */}
                                 <input class="form-control mb-2" type="tel" id="phone" name="phone" placeholder="01777777777" required />
                                 <button class="form-control btnsr mb-2" type="submit">Submit</button>
                             </form>
 
                         </div>
                         <div class="modal-footer">
-                            {/* {/*{<!-- <button type="button" class="btn btn-primary">Save changes</button> -->} */} 
+                            {/* {/*{<!-- <button type="button" class="btn btn-primary">Save changes</button> -->} */}
                         </div>
                     </div>
                 </div>
@@ -112,10 +116,10 @@ Footer showing here
                     {/*{<!-- Right -->} */}
                     <div>
                         <a href="" class="me-4 fclr ">
-                            <FaFacebook size={30} color="#BE9A82" /> 
+                            <FaFacebook size={30} color="#BE9A82" />
                         </a>
                         <a href="" class="me-4 link-secondary">
-                           <FaTwitter size={30} color="#BE9A82" />
+                            <FaTwitter size={30} color="#BE9A82" />
                         </a>
                         <a href="" class="me-4 link-secondary">
                             <FaGoogle size={30} color="#BE9A82" />
@@ -142,10 +146,10 @@ Footer showing here
                             {/*{<!-- Grid column -->} */}
                             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                 {/*{<!-- Content -->} */}
-                                <img width="270px" src={logo} alt=""/>
-                                    <p>
-                                        Wedding Solutions is a professional event-planning and catering service that organizes both corporate and personal events. We’ll make your special day long-remembered!
-                                    </p>
+                                <img width="270px" src={logo} alt="" />
+                                <p>
+                                    Wedding Solutions is a professional event-planning and catering service that organizes both corporate and personal events. We’ll make your special day long-remembered!
+                                </p>
                             </div>
                             {/*{<!-- Grid column -->} */}
 
@@ -195,13 +199,13 @@ Footer showing here
                             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                                 {/*{<!-- Links -->} */}
                                 <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                                <p><FaHome size={20}/>273/7 Shenpara Parbata Dhaka-1216</p>
+                                <p><FaHome size={20} />273/7 Shenpara Parbata Dhaka-1216</p>
                                 <p>
-                                    <FaEnvelope size={20}/>
+                                    <FaEnvelope size={20} />
                                     tech2click@example.com
                                 </p>
-                                <p><FaPhone size={20}/> +88 01 234 567 88</p>
-                                <p><FaPrint size={20}/> +88 01 234 567 89</p>
+                                <p><FaPhone size={20} /> +88 01 234 567 88</p>
+                                <p><FaPrint size={20} /> +88 01 234 567 89</p>
                             </div>
                             {/*{<!-- Grid column -->} */}
                         </div>
@@ -211,13 +215,13 @@ Footer showing here
                 {/*{<!-- Section: Links  -->} */}
 
                 {/*{<!-- Copyright -->} */}
-                <div class="text-center p-4" style={{backgroundColor:bgclr1}}>
+                <div class="text-center p-4" style={{ backgroundColor: bgclr1 }}>
                     © 2023 Copyright:
                     <a class="text-reset fw-bold" href="">Md Mostak Ahmed</a>
                 </div>
-                {/* {/*{<!-- Copyright -->} */} 
+                {/* {/*{<!-- Copyright -->} */}
             </footer>
-            {/* {/*{<!-- Footer -->} */} 
+            {/* {/*{<!-- Footer -->} */}
 
         </div>
     )
