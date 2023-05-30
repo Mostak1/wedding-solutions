@@ -8,13 +8,17 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export const Layout = () => {
     const [isLogin, setIsLogin] = useState(false);
-
+    const [user_email, setUser_email] = useState('');
+    
     let navigate = useNavigate();
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setIsLogin(true)
+                const email = user.email;
+                console.log(email);
+                setUser_email(email);
             } else {
                 setIsLogin(false)
             }
@@ -53,15 +57,9 @@ export const Layout = () => {
                             <li class="nav-item">
                                 <Link class="nav-link" to='/about' >About Us</Link>
                             </li>
-                            <li class="nav-item">
+                            {/* <li class="nav-item">
                                 <Link class="nav-link" to='/contact' >Contact Us</Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link class="nav-link" to='/product' >Service</Link>
-                            </li>
-
-
-
+                            </li> */}
                             {/* {
                                 isLogin && <li className="nav-item">
                                     <Link to="dashboard" className="nav-link" >Dashboard</Link>
@@ -81,7 +79,8 @@ export const Layout = () => {
                                         <li>
                                             <hr class="dropdown-divider" />
                                         </li>
-                                        <li><Link class="dropdown-item" to='/sellect'>Sellected Items</Link></li>
+                                        <li><Link class="dropdown-item" to='/selected'>Selected Items</Link></li>
+                                        <li><Link class="dropdown-item" to='/submititem'>Submit Items</Link></li>
                                     </ul>
                                 </li>
                             
@@ -93,6 +92,7 @@ export const Layout = () => {
                             {
                                 isLogin && <li className="nav-item">
                                     <a onClick={handleLogout} style={{ cursor: "pointer" }} className="nav-link" >Log Out</a>
+                                    {/* <p>{user_email}</p> */}
                                 </li>
                             }
                         </ul>

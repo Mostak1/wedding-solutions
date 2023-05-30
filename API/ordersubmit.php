@@ -7,8 +7,9 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $requestPayload = file_get_contents('php://input');
 
 // Decode the JSON data
-$cartItems = json_decode($requestPayload, true);
-echo $cartItems;
+$data = json_decode($requestPayload, true);
+$user_email = $data['user_email'];
+$cartItems = $data['cartItems'];
 // Connect to the MySQL database
 $servername = "localhost";
 $username = "root";
@@ -27,9 +28,10 @@ if ($conn->connect_error) {
 foreach ($cartItems as $item) {
   $name = $conn->real_escape_string($item['title']);
   $price = $conn->real_escape_string($item['images']);
+  
   // Additional properties
 
-  $sql = "INSERT INTO `venues` (name,images) VALUES ('$name', '$price')";
+  $sql = "INSERT INTO `orders` (p_name,p_images,u_email) VALUES ('$name', '$price','$user_email')";
   // Additional columns and values
 
   if ($conn->query($sql) !== true) {

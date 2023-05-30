@@ -90,3 +90,30 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+data send to database
+
+    //data submitted function
+    // const submitCartItemsToDatabase = () => {
+    //     const xhr = new XMLHttpRequest();
+    //     const url = 'http://localhost/WDPF/react/wedding-solutions/API/ordersubmit.php';
+    //     const method = 'POST';
+      
+    //     xhr.open(method, url, true);
+    //     xhr.setRequestHeader('Content-Type', 'application/json');
+      
+    //     xhr.onreadystatechange = function() {
+    //       if (xhr.readyState === XMLHttpRequest.DONE) {
+    //         if (xhr.status === 200) {
+    //           // console.log('Cart items submitted successfully');
+    //           alert('Cart items submitted successfully');
+    //         } else {
+    //           console.error('Error submitting cart items:', xhr.status);
+    //         }
+    //       }
+    //     };
+      
+    //     const data = JSON.stringify(allCartItems);
+    //     xhr.send(data);
+    //     console.log(data);
+    //   };

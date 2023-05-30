@@ -9,7 +9,7 @@ export const Halldec = () => {
     const imgUrl = 'http://localhost/WDPF/react/wedding-solutions/src/assets/picture/hall/';
 
     // data get from api
-    const dataApi = 'http://192.168.0.108/WDPF/react/wedding-solutions/API/alltableapi.php';
+    const dataApi = 'http://localhost/WDPF/react/wedding-solutions/API/alltableapi.php';
 
     useEffect(() => {
       const fetchProducts = async () => {
@@ -35,7 +35,7 @@ export const Halldec = () => {
         // Save cart items to local storage
         localStorage.setItem('hcartItems', JSON.stringify(cartItems));
       } catch (error) {
-        console.error('Error sending cart items to database:', error);
+        console.error('Error sending Select items to database:', error);
         setIsSending(false);
       }
     };
@@ -45,7 +45,7 @@ export const Halldec = () => {
     return (
       <>
         <div className="container">
-          <div className="row">
+          <div className="row my-5">
             <div className="col-md-8">
   
               <h1 className='fnt2'>Wedding Hall Design</h1>
@@ -60,7 +60,7 @@ export const Halldec = () => {
                         <p class="card-text"></p>
                       </div>
                       <div class="card-footer text-center">
-                        <button className='btn btn-outline-secondary px-4' onClick={() => addToCart(product)}>Add to Cart</button>
+                        <button className='btn btn-outline-secondary px-4' onClick={() => addToCart(product)}>Add to Add to Choice List</button>
                         {/* <small class="text-body-secondary">Last updated 3 mins ago</small> */}
                       </div>
                     </div>
@@ -77,7 +77,7 @@ export const Halldec = () => {
             </div>
             <div className="col-md-3">
   
-              <h2 className='fnt2'>Cart</h2>
+              <h2 className='fnt2'>Choice List</h2>
               <ul>
                 {cartItems.map((item, index) => (
                   <div class="col mb-3">

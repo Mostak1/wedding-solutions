@@ -1,45 +1,49 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Registration.css';
 import img8 from '../../assets/img/mt-1993-img05.jpg';
 import logo from '../../assets/img/ws.png';
 import { FaFacebook, FaGooglePlusG, FaLinkedinIn } from 'react-icons/fa';
-import { Outlet, Link,useNavigate } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import auth from '../../firebase/FirebaseConfig';
 
 export const Registration = () => {
 
     let navigate = useNavigate();
 
-    useEffect(()=>{
-        onAuthStateChanged(auth,(user)=> {
-            if(user){
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
                 navigate("/")
             }
         })
-    },[navigate])
+    }, [navigate])
 
     const [name, setName] = useState('');
     const [mobile, setMobile] = useState('');
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [password, setPassword] = useState('');
-
+    const [rpassword, setRpassword] = useState('');
 
     const handleRegister = (e) => {
         e.preventDefault();
-        createUserWithEmailAndPassword(auth,email,password)
-        .then((userCredential)=>{
-            let user = userCredential.user
-            if(user){
-                alert("User Register SuccessFully")
-            }
-        })
-        .catch((error) => {
-            alert(error.message)
-        })
-        
+        if (password === rpassword) {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    let user = userCredential.user
+                    if (user) {
+                        alert("User Register SuccessFully")
+                    }
+                })
+                .catch((error) => {
+                    alert(error.message)
+                })
+        } else {
+            alert("User Password Not Match");
+        }
+
     }
 
     // const handleSubmit = () => {
@@ -73,28 +77,28 @@ export const Registration = () => {
                         <form onSubmit={handleRegister}>
 
 
-                            <div className="form-floating mb-3">
+                            {/* <div className="form-floating mb-3">
                                 <input type="text" className="form-control" id="floatingInput" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
                                 <label for="floatingInput">Name</label>
                             </div>
                             <div className="form-floating mb-3">
                                 <input type="number" className="form-control" id="floatingInput" placeholder="mobile no" value={mobile} onChange={(e) => setMobile(e.target.value)} />
                                 <label for="floatingInput">Mobile</label>
-                            </div>
+                            </div> */}
                             <div className="form-floating mb-3">
                                 <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                                 <label for="floatingInput">Email address</label>
                             </div>
-                            <div className="form-floating mb-3">
+                            {/* <div className="form-floating mb-3">
                                 <input type="text" className="form-control" id="floatingInput" placeholder="address" value={address} onChange={(e) => setAddress(e.target.value)} />
                                 <label for="floatingInput">Address</label>
-                            </div>
+                            </div> */}
                             <div className="form-floating mb-3">
                                 <input type="password" className="form-control" id="floatingPassword" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+                                <input type="password" className="form-control" id="floatingPassword" placeholder="Password" value={rpassword} onChange={(e) => setRpassword(e.target.value)} />
                                 <label for="floatingPassword">Re-Type Password</label>
                             </div>
                             <div className="form-floating mb-3">
@@ -116,7 +120,6 @@ export const Registration = () => {
                     </div>
                     <div className='col-md-7'>
                         <img src={img8} className="simg img-fluid" alt="" />
-
                     </div>
                 </div>
             </div>

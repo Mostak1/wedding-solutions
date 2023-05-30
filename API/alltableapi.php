@@ -39,6 +39,13 @@ if ($result4->num_rows > 0) {
         $data['photoshoot'][] = $row;
     }
 }
+$sql5 = "SELECT * FROM `orders` where 1";
+$result5 = $conn->query($sql5);
+if ($result5->num_rows > 0) {
+    while($row = $result5->fetch_assoc()) {
+        $data['orders'][] = $row;
+    }
+}
 
 // Convert the data array to JSON and send the response
 echo json_encode($data);

@@ -17,13 +17,14 @@ import { Gatedecoration } from "./user/product/Gatedecoration";
 import { Stagedecoration } from "./user/product/Stagedecoration";
 import { Halldec } from "./user/product/Halldec";
 import { Photoshootdec } from "./user/product/Photoshootdec";
-import { Sellecteditem } from "./user/product/Sellecteditem";
+import { Selecteditem } from "./user/product/Selecteditem";
 //admin
 import PrivateRoute from "./Privateroute";
 import DashLayout from "./admin/DashLayout";
 import DashHome from "./admin/pages/DashHome";
 import AddProducts from "./admin/pages/AddProducts";
 import User from "./admin/pages/User";
+import { Submititem } from "./user/product/Submititem";
 
 // import { FaReact } from 'react-icons/fa';
 
@@ -46,7 +47,8 @@ function App() {
             <Route path="stage" element={<Stagedecoration />} />
             <Route path="hall" element={<Halldec />} />
             <Route path="photoshoot" element={<Photoshootdec />} />
-            <Route path="sellect" element={<Sellecteditem />} />
+            <Route path="selected" element={<Selecteditem />} />
+            <Route path="submititem" element={<Submititem />} />
             <Route path="*" element={<Nopage />} />
           </Route>
           <Route path="dashboard" element={
