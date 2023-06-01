@@ -39,11 +39,20 @@ if ($result4->num_rows > 0) {
         $data['photoshoot'][] = $row;
     }
 }
+// Retrieve records from the 5th table
 $sql5 = "SELECT * FROM `orders` where 1";
 $result5 = $conn->query($sql5);
 if ($result5->num_rows > 0) {
     while($row = $result5->fetch_assoc()) {
         $data['orders'][] = $row;
+    }
+}
+// Retrieve records from the 6th table
+$sql6 = "SELECT * FROM `users` where 1";
+$result6 = $conn->query($sql6);
+if ($result6->num_rows > 0) {
+    while($row = $result6->fetch_assoc()) {
+        $data['users'][] = $row;
     }
 }
 

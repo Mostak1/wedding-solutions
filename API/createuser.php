@@ -1,6 +1,5 @@
 <?php
 require "connection.php";
-
 // $postdata = file_get_contents("php://input");
 // /* echo json_encode($postdata);//{"title":"11","description":"22","price":"33","id":null}
 // exit; */

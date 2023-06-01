@@ -11,15 +11,25 @@ a,p{
     /* font-family: 'Cormorant Garamond', serif; */
 }
 .btnsr{
-    background-color: #BE9A82;
+    background-color: #f3e5dd;
+    position: fixed;
+    right: 5px;
+    bottom: 80px;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgb(236, 177, 177);
+    
 }
 .titleclr{
 color: #BE9A82;
 font-family: 'Cormorant Garamond', serif;
 }
 .btnsr:hover{
-    background-color: #f8f4f1;
-    border: 1px solid #BE9A82;
+    background-color: #BE9A82;
+    border: 1px solid #ece5df;
 }
 .close_btn {
     position: absolute;

@@ -1,7 +1,7 @@
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import logo from './logo.svg';
+
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -25,6 +25,8 @@ import DashHome from "./admin/pages/DashHome";
 import AddProducts from "./admin/pages/AddProducts";
 import User from "./admin/pages/User";
 import { Submititem } from "./user/product/Submititem";
+import { UserDetails } from "./user/UserDetails";
+import { Editprofile } from "./user/Editprofile";
 
 // import { FaReact } from 'react-icons/fa';
 
@@ -49,6 +51,8 @@ function App() {
             <Route path="photoshoot" element={<Photoshootdec />} />
             <Route path="selected" element={<Selecteditem />} />
             <Route path="submititem" element={<Submititem />} />
+            <Route path="userDetails" element={<UserDetails />} />
+            <Route path="editprofile" element={<Editprofile />} />
             <Route path="*" element={<Nopage />} />
           </Route>
           <Route path="dashboard" element={
